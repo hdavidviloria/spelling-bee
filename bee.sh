@@ -16,10 +16,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-#!/bin/bash
-
-# function to speak word in specified language
 function speak {
   if [ "$2" == "chinese" ]; then
     say -v Ting-Ting "$1"
@@ -39,13 +35,15 @@ while true; do
   if [ $lang_idx -eq 0 ]; then
     lang="english"
     word=$(sort -R words_en.txt | head -1)
+    word_speak="$word"
   elif [ $lang_idx -eq 1 ]; then
     lang="chinese"
     word=$(sort -R words_cn.txt | head -1)
-    echo $word
+    word_speak=$(echo "$word" | sed -E 's/\(([^)]+)\)//g')
   else
     lang="tagalog"
     word=$(sort -R words_tl.txt | head -1)
+    word_speak="$word"
   fi
 
   # check if word has been used before
@@ -54,7 +52,7 @@ while true; do
   fi
 
   # speak the word in the selected language
-  speak "$word" "$lang"
+  speak "$word_speak" "$lang"
 
   # wait for keypress
   echo "Press a key for the answer"
