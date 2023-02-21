@@ -17,22 +17,21 @@
 # limitations under the License.
 #
 
+#!/bin/bash
+
+# function to speak word in specified language
 function speak {
-  local word=$1
-  local lang=$2
-
-  echo "$word" > /tmp/speak
-
-  if [ "$lang" = "chinese" ]; then
-    say -v Ting-Ting -r 150 -f /tmp/speak
-  elif [ "$lang" = "english" ]; then
-    say -v Samantha -r 200 -f /tmp/speak
-  elif [ "$lang" = "tagalog" ]; then
-    say -v Karen -r 200 -f /tmp/speak
+  if [ "$2" == "chinese" ]; then
+    say -v Ting-Ting "$1"
+  elif [ "$2" == "tagalog" ]; then
+    say -v Monica "$1"
   else
-    echo "Unsupported language: $lang"
+    say "$1"
   fi
 }
+
+# initialize array to keep track of used words
+declare -a used_words=()
 
 while true; do
   # choose a random language
@@ -43,20 +42,37 @@ while true; do
   elif [ $lang_idx -eq 1 ]; then
     lang="chinese"
     word=$(sort -R words_cn.txt | head -1)
+    echo $word
   else
     lang="tagalog"
     word=$(sort -R words_tl.txt | head -1)
   fi
 
+  # check if word has been used before
+  if [[ " ${used_words[@]} " =~ " ${word} " ]]; then
+    continue  # skip to next iteration if word has been used before
+  fi
+
   # speak the word in the selected language
   speak "$word" "$lang"
 
-
+  # wait for keypress
   echo "Press a key for the answer"
   read -n 1 -s
 
+  # spell out the word
+  letters=$(echo $word | tr '[A-Z]' '[a-z]' | sed 's/[a-z]/&, /g')
   echo $word
- 
+  echo $letters
+
+  # speak the letters in the selected language
+  speak "$letters" "$lang"
+
+  # ask if the user got the word correct
+  read -p "Did you get it correct? (y/n) " answer
+  if [ "$answer" == "y" ]; then
+    used_words+=("$word")  # add word to used_words array
+  fi
 
   # wait for keypress
   echo "Press a key for the next word"
