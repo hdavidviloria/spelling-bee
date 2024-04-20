@@ -27,18 +27,36 @@ So, I forked the program, and with a bit of help from trusty old ChatGPT, I modi
 <img width="784" alt="Screenshot 2024-04-20 at 9 27 29 PM" src="https://github.com/hdavidviloria/spelling-bee-mac/assets/94162758/22459121-6372-4fe2-b3a4-a5907c349bfc">
 
 
-2. Navigate to the folder and edit ```words_cn.txt``` and ```words_en.txt```, replacing it with your actual words.
+2. Navigate to the folder and edit the text files```words_cn.txt``` and ```words_en.txt```, replacing it with your actual words.
 
 
 ```words_en.txt``` should contain all the English vocabulary words that you are reviewing, ```words_cn.txt``` should contain all the Chinese vocabulary words. 
 
+
+
 > [!NOTE]  
-> If let's say, you only want to review English words, just leave the ```words_cn.txt``` file blank.
+> If you only want to review English words, just leave the ```words_cn.txt``` file blank.
 
 
 3. Open the Terminal application on your Mac and run the program!
 
-Use the command ```sh bee.sh```
+- First, navigate to the project directory
+
+```
+cd /directorywherethefolderyoudownloadedis
+```
+
+For me, it's 
+```
+cd /users/david/Downloads/spelling-bee-mac-master
+```
+
+- Then, run the program using the command 
+```
+sh bee.sh
+```
+<img width="636" alt="Screenshot 2024-04-20 at 9 40 28 PM" src="https://github.com/hdavidviloria/spelling-bee-mac/assets/94162758/eea74643-7e04-4714-8daa-2e0cd85a4cdb">
+
 
 
 
