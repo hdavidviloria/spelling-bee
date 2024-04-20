@@ -24,7 +24,13 @@ So, I forked the program, and with a bit of help from trusty old ChatGPT, I modi
 
 1. Simply download the zip file and open it!
 
+   
+
 <img width="784" alt="Screenshot 2024-04-20 at 9 27 29 PM" src="https://github.com/hdavidviloria/spelling-bee-mac/assets/94162758/22459121-6372-4fe2-b3a4-a5907c349bfc">
+
+
+
+
 
 
 2. Navigate to the folder and edit the text files```words_cn.txt``` and ```words_en.txt```, replacing it with your actual words.
@@ -38,7 +44,12 @@ So, I forked the program, and with a bit of help from trusty old ChatGPT, I modi
 > If you only want to review English words, just leave the ```words_cn.txt``` file blank.
 
 
+
+
+
 3. Open the Terminal application on your Mac and run the program!
+
+
 
 - First, navigate to the project directory
 
@@ -61,5 +72,5 @@ sh bee.sh
 
 
 
-### And that's it! Happy reviewing!
+### And that's it! Happy reviewing! Hope this project inspired you or helped in you in some sort of way!
 
