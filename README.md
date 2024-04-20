@@ -41,7 +41,7 @@ So, I forked the program, and with a bit of help from trusty old ChatGPT, I modi
 
 
 > [!NOTE]  
-> If you only want to review English words, just leave the ```words_cn.txt``` file blank.
+> If you only want to review English words, just go to the ```words_cn.txt``` file and DELETE all the words there.
 
 
 
